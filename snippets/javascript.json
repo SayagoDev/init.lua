@@ -1,0 +1,11 @@
+{
+  "Test": {
+    "prefix": "test",
+    "body": [
+      "test('${1:should}', () => {",
+      "    $2",
+      "});"
+    ],
+    "description": "Crea la plantilla de un test"
+  }
+}
