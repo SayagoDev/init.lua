@@ -7,5 +7,17 @@
       "});"
     ],
     "description": "Crea la plantilla de un test"
+  },
+  "New functional component": {
+    "prefix": "rafc",
+    "body": [
+      "export const '${1:TM_FILENAME_BASE}' = () => {",
+      "    return (",
+      "        <>",
+      "        </>",
+      "    )",
+      "}"
+    ],
+    "description": "Crea un nuevo componente"
   }
 }

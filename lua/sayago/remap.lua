@@ -85,3 +85,6 @@ keymap("n", "<leader><leader>", function ()
     vim.cmd("so")
     print("Source... ✅")
 end)
+
+keymap("n", "<M-n>", "<cmd>lua require'luasnip'.jump(1)<CR>")
+keymap("n", "<M-p>", "<cmd>lua require'luasnip'.jump(-1)<CR>")

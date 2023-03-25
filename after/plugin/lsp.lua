@@ -4,6 +4,7 @@ local lsp = require('lsp-zero').preset({
     manage_nvim_cmp = true,
     suggest_lsp_servers = false,
 })
+local luasnip = require('luasnip')
 
 lsp.ensure_installed({
     'tsserver',
@@ -16,8 +17,24 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-y>'] = cmp.config.disable,
+    ["<Tab>"] = cmp.mapping.confirm { select = true },
+    -- ["<Tab>"] = cmp.mapping(function(fallback)
+    --   if cmp.visible() then
+    --     cmp.select_next_item()
+    --   elseif luasnip.expandable() then
+    --     luasnip.expand()
+    --   elseif luasnip.expand_or_jumpable() then
+    --     luasnip.expand_or_jump()
+    --   else
+    --     fallback()
+    --   end
+    -- end, {
+    --   "i",
+    --   "s",
+    -- }),
     ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-b>'] = cmp.mapping.abort(),
 })
 
 lsp.set_preferences({
